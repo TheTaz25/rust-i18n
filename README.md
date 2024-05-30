@@ -13,7 +13,7 @@ Expectations:
 - ✅ A project has a default language and a name under which everything operates
 - ✅ A project consists of `subgroups`, `subgroups` are similar translation-groups and are used for a more in-depth representation of translations (e.g. `auth.login` is a group that contains multiple translations for the topic of authentication on a login page). Subgroups are stored in a separate table.
 - ✅ Subgroups are stored in whole by key (e.g. `auth.login`), are referenced to a project, ~and can be referred to a parent (optional)~. This means that `auth` can have multiple "children". Some of those children are direct translations, some other are groups that can be further nested or otherwise contain translations
-- A subgroup of `auth`, e.g. `auth.login` constricts `login` to be a subgroup. No translation named `login` and being assigned to sub-group `auth` is allowed.
+- ✅ A subgroup of `auth`, e.g. `auth.login` constricts `login` to be a subgroup. No translation named `login` and being assigned to sub-group `auth` is allowed (covered by procedure).
 - ✅ A subgroup can have one or more translations. Translations are stored in a seperated table.
 - ✅ A translation is always assigned to a subgroup, has a key to be referred to and an indicator which language it is currently translating, and of course the text that is translated to the language assigned.
 - ✅ The sub-group-key, the translation-key and the translation-language, are in whole unique.
@@ -26,10 +26,10 @@ Expectations:
 
 - [x] Install diesel for the project, and create first migrations for the POC
 
-- [ ] Create Stored Procedures / Functions for inserting new subgroups
+- [x] Create Stored Procedures / Functions for inserting new subgroups
 Expectations:
-- Procedure checks, if for a given key, a translation is already existent. If true, raise an exception.
-- sub-groups can be any length of dot-delimited (`.`) string. If subgroups do not exist yet, new ones will be generated.
+- ✅ Procedure checks, if for a given key, a translation is already existent. If true, raise an exception.
+- ✅ sub-groups can be any length of dot-delimited (`.`) string. If subgroups do not exist yet, new ones will be generated.
 
 - [ ] Create Stored Procedures / Functions for inserting a translation assigned to a subgroup
 Expectations:
